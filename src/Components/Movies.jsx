@@ -96,22 +96,33 @@ function Movies() {
 
   return (
     <>
-      <div>
-        <button onClick={() => setStartWatching(!StartWatching)}>
-          {StartWatching ? "logout" : "Start Watching"}
-        </button>
-        <div>
-          {StartWatching ? (
-            <select onChange={selectList} value={List}>
-              <option value="Movies">Movies</option>
-              <option value="Shows"> Tv shows</option>
-            </select>
-          ) : (
-            <p>log in to start watching</p>
-          )}
-        </div>
-        {DisplayList()}
-      </div>
+      <div className="min-h-screen bg-sky-50 p-6">
+  <div className="flex items-center justify-between mb-6">
+    <button
+      onClick={() => setStartWatching(!StartWatching)}
+      className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200"
+    >
+      {StartWatching ? "Logout" : "Start Watching"}
+    </button>
+
+    <div>
+      {StartWatching ? (
+        <select
+          onChange={selectList}
+          value={List}
+          className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+        >
+          <option value="Movies">Movies</option>
+          <option value="Shows">TV Shows</option>
+        </select>
+      ) : (
+        <p className="text-gray-400 text-sm italic">Log in to start watching</p>
+      )}
+    </div>
+  </div>
+
+  {DisplayList()}
+</div>
     </>
   );
 }
