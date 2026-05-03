@@ -42,13 +42,24 @@ function Movies() {
                   key={Movie.id}
                 >
                   <h2>{Movie.name}</h2>
-                  <p>{Movie.subject}</p>
+                  <p>{Movie.genre}</p>
+                  <p>{Movie.year}</p>
                 </div>
               ))}
             </div>
           );
         case "Shows":
-          return <div></div>;
+          return <div>
+             {Shows.map((Show) => (
+                <div
+                  key={Show.id}
+                >
+                  <h2>{Show.name}</h2>
+                  <p>{Show.genre}</p>
+                  <p>{Show.year}</p>
+                </div>
+              ))}
+          </div>;
       }
     }
   };
