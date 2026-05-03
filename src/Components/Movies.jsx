@@ -33,7 +33,7 @@ function Movies() {
   };
   const DisplayList = () => {
     if (StartWatching) {
-      switch (list) {
+      switch (List) {
         case "Movies":
           return (
             <div>
@@ -49,7 +49,7 @@ function Movies() {
             </div>
           );
         case "Shows":
-          return <div>
+          return (<div>
              {Shows.map((Show) => (
                 <div
                   key={Show.id}
@@ -59,7 +59,21 @@ function Movies() {
                   <p>{Show.year}</p>
                 </div>
               ))}
-          </div>;
+          </div>);
+          default :
+          return (
+            <div>
+              {Movies.map((Movie) => (
+                <div
+                  key={Movie.id}
+                >
+                  <h2>{Movie.name}</h2>
+                  <p>{Movie.genre}</p>
+                  <p>{Movie.year}</p>
+                </div>
+              ))}
+            </div>
+          );
       }
     }
   };
@@ -80,6 +94,7 @@ function Movies() {
             <p>log in to start watching</p>
           )}
         </div>
+        {DisplayList()}
       </div>
     </>
   );
