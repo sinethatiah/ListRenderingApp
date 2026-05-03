@@ -36,40 +36,56 @@ function Movies() {
       switch (List) {
         case "Movies":
           return (
-            <div>
+            <div className="grid grid-cols-2 gap-4 p-4">
               {Movies.map((Movie) => (
                 <div
                   key={Movie.id}
+                  className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200"
                 >
-                  <h2>{Movie.name}</h2>
-                  <p>{Movie.genre}</p>
-                  <p>{Movie.year}</p>
+                  <h2 className="text-gray-900 font-semibold text-lg">
+                    {Movie.name}
+                  </h2>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">
+                      {Movie.genre}
+                    </span>
+                    <span className="text-gray-400 text-sm">{Movie.year}</span>
+                  </div>
                 </div>
               ))}
             </div>
           );
         case "Shows":
-          return (<div>
-             {Shows.map((Show) => (
-                <div
-                  key={Show.id}
-                >
-                  <h2>{Show.name}</h2>
-                  <p>{Show.genre}</p>
-                  <p>{Show.year}</p>
-                </div>
-              ))}
-          </div>);
-          default :
           return (
-            <div>
+           <div className="grid grid-cols-2 gap-4 p-4">
+  {Shows.map((Show) => (
+    <div key={Show.id} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200">
+      <h2 className="text-gray-900 font-semibold text-lg">{Show.name}</h2>
+      <div className="flex items-center justify-between mt-2">
+        <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">{Show.genre}</span>
+        <span className="text-gray-400 text-sm">{Show.year}</span>
+      </div>
+    </div>
+  ))}
+</div>
+          );
+        default:
+          return (
+            <div className="grid grid-cols-2 gap-4 p-4">
               {Movies.map((Movie) => (
                 <div
                   key={Movie.id}
+                  className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200"
                 >
-                  <h2>{Movie.name}</h2>
-                  <p>{Movie.genre}</p>
-                  <p>{Movie.year}</p>
+                  <h2 className="text-gray-900 font-semibold text-lg">
+                    {Movie.name}
+                  </h2>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">
+                      {Movie.genre}
+                    </span>
+                    <span className="text-gray-400 text-sm">{Movie.year}</span>
+                  </div>
                 </div>
               ))}
             </div>
