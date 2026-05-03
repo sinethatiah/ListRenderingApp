@@ -27,47 +27,48 @@ function Movies() {
     { id: 10, name: "The Last of Us", genre: "Drama", year: "2023" },
   ];
 
-
-  const [List , setList] = useState(Movies);
+  const [List, setList] = useState(Movies);
   const selectList = (e) => {
     setList(e.target.value);
   };
   const DisplayList = () => {
-if(StartWatching){
-  switch(list){
-case "Movies" :
-  return(
-<div>
-
-  
-</div>
-
-  );
-  case "Shows" :
-    return(
-      div
-    )
-
-
-  }
-}
-
-
-  }
+    if (StartWatching) {
+      switch (list) {
+        case "Movies":
+          return (
+            <div>
+              {Movies.map((Movie) => (
+                <div
+                  key={Movie.id}
+                >
+                  <h2>{Movie.name}</h2>
+                  <p>{Movie.subject}</p>
+                </div>
+              ))}
+            </div>
+          );
+        case "Shows":
+          return <div></div>;
+      }
+    }
+  };
 
   return (
     <>
-    <div>
-      <button onClick={() => setStartWatching(!StartWatching)}>
-        {StartWatching ? "logout" : "Start Watching"}
-      </button>
       <div>
-        {StartWatching?(
-        <select onChange={selectList} value={List}>
-          <option value="Movies">Movies</option>
-          <option value="Shows"> Tv shows</option>
-        </select>) : (<p>log in to start watching</p>)}
-      </div>
+        <button onClick={() => setStartWatching(!StartWatching)}>
+          {StartWatching ? "logout" : "Start Watching"}
+        </button>
+        <div>
+          {StartWatching ? (
+            <select onChange={selectList} value={List}>
+              <option value="Movies">Movies</option>
+              <option value="Shows"> Tv shows</option>
+            </select>
+          ) : (
+            <p>log in to start watching</p>
+          )}
+        </div>
       </div>
     </>
   );
