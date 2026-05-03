@@ -37,7 +37,10 @@ if(StartWatching){
   switch(list){
 case "Movies" :
   return(
-<div></div>
+<div>
+
+  
+</div>
 
   );
   case "Shows" :
