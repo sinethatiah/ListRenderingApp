@@ -96,32 +96,40 @@ function Movies() {
 
   return (
     <>
-      <div className="min-h-screen bg-sky-50 p-6">
-  <div className="flex items-center justify-between mb-6">
-    <button
-      onClick={() => setStartWatching(!StartWatching)}
-      className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200"
-    >
-      {StartWatching ? "Logout" : "Start Watching"}
-    </button>
-
-    <div>
-      {StartWatching ? (
-        <select
-          onChange={selectList}
-          value={List}
-          className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+     <div className="min-h-screen bg-sky-50 p-6">
+  <div className="flex flex-col items-center justify-center min-h-screen">
+    {!StartWatching ? (
+      <div className="text-center">
+        <p className="text-gray-400 text-sm italic mb-4">Log in to start watching</p>
+        <button
+          onClick={() => setStartWatching(!StartWatching)}
+          className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200"
         >
-          <option value="Movies">Movies</option>
-          <option value="Shows">TV Shows</option>
-        </select>
-      ) : (
-        <p className="text-gray-400 text-sm italic">Log in to start watching</p>
-      )}
-    </div>
+          Start Watching
+        </button>
+      </div>
+    ) : (
+      <div className="w-full">
+        <div className="flex items-center justify-between mb-6">
+          <select
+            onChange={selectList}
+            value={List}
+            className="bg-white border border-gray-200 text-gray-700 text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-400"
+          >
+            <option value="Movies">Movies</option>
+            <option value="Shows">TV Shows</option>
+          </select>
+          <button
+            onClick={() => setStartWatching(!StartWatching)}
+            className="bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200"
+          >
+            Logout
+          </button>
+        </div>
+        {DisplayList()}
+      </div>
+    )}
   </div>
-
-  {DisplayList()}
 </div>
     </>
   );
