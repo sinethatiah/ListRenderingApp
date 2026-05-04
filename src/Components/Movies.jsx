@@ -27,7 +27,7 @@ function Movies() {
     { id: 10, name: "The Last of Us", genre: "Drama", year: "2023" },
   ];
 
-  const [List, setList] = useState(Movies);
+  const [List, setList] = useState("Movies");
   const selectList = (e) => {
     setList(e.target.value);
   };
@@ -37,9 +37,9 @@ function Movies() {
         case "Movies":
           return (
             <div className="grid grid-cols-2 gap-4 p-4">
-              {Movies.map((Movie) => (
+              {Movies.map((Movie , index) => (
                 <div
-                  key={Movie.id}
+                  key={index}
                   className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200"
                 >
                   <h2 className="text-gray-900 font-semibold text-lg">
