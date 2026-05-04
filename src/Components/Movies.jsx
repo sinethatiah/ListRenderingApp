@@ -133,7 +133,11 @@ function Movies() {
               </button>
             </div>
           ) : (
+        
             <div className="w-full">
+            
+                <h2 className="text-gray-600 text-4xl font-black mb-2 text-center">Your Watchlist</h2>
+              
               <div className="flex items-center justify-between mb-6">
                 <select
                   onChange={selectList}
